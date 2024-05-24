@@ -41,6 +41,14 @@ class ListTodoViewModel(application: Application)
             todoLD.postValue(db.todoDao().selectAllTodo())
         }
     }
+
+    fun doneTask(todo: Todo){
+        launch {
+            val db = buildDb(getApplication())
+            db.todoDao().updateIsDone(todo.uuid, todo.is_done)
+            todoLD.postValue(db.todoDao().selectAllTodo())
+        }
+    }
 //    fun clearTask(todo: Todo) {
 //        launch {
 //            val db = Room.databaseBuilder(

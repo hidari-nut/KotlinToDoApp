@@ -18,7 +18,7 @@ import com.viswa.todoapp.viewmodel.ListTodoViewModel
 class TodoListFragment : Fragment() {
     private lateinit var binding:FragmentTodoListBinding
     private lateinit var viewModel:ListTodoViewModel
-    private val adapter = TodoListAdapter(arrayListOf(), {item->viewModel.clearTask(item)})
+    private val adapter = TodoListAdapter(arrayListOf(), {item->viewModel.doneTask(item)})
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

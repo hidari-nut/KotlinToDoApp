@@ -26,4 +26,7 @@ interface TodoDao {
             "SET title = :title, notes = :notes, priority = :priority " +
             "WHERE uuid = :id")
     fun update(title:String, notes:String, priority:Int, id:Int)
+    //Query update isDone
+    @Query("UPDATE todo SET is_done = :isDone WHERE uuid = :id")
+    fun updateIsDone(id: Int, isDone: Int)
 }
