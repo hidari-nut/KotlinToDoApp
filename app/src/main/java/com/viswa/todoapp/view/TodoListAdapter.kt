@@ -30,9 +30,11 @@ class TodoListAdapter(val todoList:ArrayList<Todo>,
 //  DataBinding
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
 
-        holder.binding.checkTask.text=
-            todoList[position].title
+//        holder.binding.checkTask.text=
+//            todoList[position].title
         holder.binding.checkTask.isChecked = todoList[position].is_done == 1
+        holder.binding.editlistener = this
+        holder.binding.todo = todoList[position]
 
         if (todoList[position].is_done == 1) {
             holder.binding.checkTask.paintFlags = holder.binding.checkTask.paintFlags or android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
@@ -40,23 +42,23 @@ class TodoListAdapter(val todoList:ArrayList<Todo>,
             holder.binding.checkTask.paintFlags = holder.binding.checkTask.paintFlags and android.graphics.Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
 
-        holder.binding.imgEdit.setOnClickListener{
-            val action = TodoListFragmentDirections.actionEditTodo(todoList[position].uuid)
-            Navigation.findNavController(it).navigate(action)
-        }
+//        holder.binding.imgEdit.setOnClickListener{
+//            val action = TodoListFragmentDirections.actionEditTodo(todoList[position].uuid)
+//            Navigation.findNavController(it).navigate(action)
+//        }
 
-        holder.binding.checkTask.
-        setOnCheckedChangeListener { compoundButton,
-                                     b ->
-            if(compoundButton.isPressed){
-                todoList[position].is_done =
-                    if (b)
-                        1
-                    else
-                        0
-                adapterOnClick(todoList[position])
-            }
-        }
+//        holder.binding.checkTask.
+//        setOnCheckedChangeListener { compoundButton,
+//                                     b ->
+//            if(compoundButton.isPressed){
+//                todoList[position].is_done =
+//                    if (b)
+//                        1
+//                    else
+//                        0
+//                adapterOnClick(todoList[position])
+//            }
+//        }
 
     }
 

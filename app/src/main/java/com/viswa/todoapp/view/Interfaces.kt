@@ -14,3 +14,7 @@ interface TodoEditClickListener{
     fun onTodoEditClick(v:View)
 
 }
+interface RadioClickListener{
+    fun onRadioClick(v:View)
+}
+

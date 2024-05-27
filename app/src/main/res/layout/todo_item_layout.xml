@@ -8,12 +8,12 @@
     <variable
         name="todo"
         type="com.viswa.todoapp.model.Todo" />
-        <variable
-            name="listener"
-            type="com.viswa.todoapp.view.TodoCheckedChangeListener" />
-        <variable
-            name="editlistener"
-            type="com.viswa.todoapp.view.TodoEditClickListener" />
+    <variable
+        name="listener"
+        type="com.viswa.todoapp.view.TodoCheckedChangeListener" />
+    <variable
+        name="editlistener"
+        type="com.viswa.todoapp.view.TodoEditClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,12 +28,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="8dp"
+            android:onCheckedChanged="@{(cb, isChecked) -> listener.onCheckedChange(cb, isChecked, todo)}"
             android:text="@{todo.title}"
-            android:onCheckedChanged = "@{(cb, isChecked) -> listener.onCheckedChange(cb, isChecked, todo)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imgEdit"
